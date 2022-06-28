@@ -7,6 +7,7 @@ export const Container = styled.div`
 	margin-right: 5%;
 	margin-bottom: 1%;
 	border: 1px solid #DE5C8E;
+	background-color: white;
 	border-radius: 10px;
 	overflow: auto;
 	@media (max-width: 800px) {
