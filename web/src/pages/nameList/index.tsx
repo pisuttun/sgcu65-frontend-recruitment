@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { GET } from '../../functions/api';
-import { PageContainer, MainContainer, MenuContainer } from './styled';
+import { PageContainer, MainContainer, MenuContainer, InputField, RegisterBtn } from './styled';
 import { User } from './type';
 import Card from './card';
 
@@ -22,18 +22,18 @@ export default function NameListPage() {
   }, []);
 
   useEffect(() => {
-    const timer = setTimeout(() => {
-      console.log('search', keyword);
-      setShownlist(namelist.filter((i) => (i.name + i.surname + i.username).toLowerCase().includes(keyword)));
-    }, 300);
-    return () => clearTimeout(timer);
+    console.log('search', keyword);
+    setShownlist(namelist.filter((i) => (i.name + i.surname + i.username).toLowerCase().includes(keyword)));
   }, [keyword]);
 
   return (
     <PageContainer>
+      <RegisterBtn style={{ alignSelf: 'flex-end' }} to="/register">
+        ลงทะเบียนเลย
+      </RegisterBtn>
       <MenuContainer>
         <h3>รายชื่อผู้ลงทะเบียน</h3>
-        <input placeholder="ค้นหา" onChange={(e) => setKeyword(e.target.value.toLowerCase())} />
+        <InputField placeholder="ค้นหา" onChange={(e) => setKeyword(e.target.value.toLowerCase())} />
       </MenuContainer>
       <MainContainer>
         {shownlist.map((i) => (

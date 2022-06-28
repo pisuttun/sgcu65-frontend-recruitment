@@ -9,6 +9,11 @@ export const Container = styled.div`
 	border: 1px solid #DE5C8E;
 	border-radius: 10px;
 	overflow: auto;
+	@media (max-width: 800px) {
+		width: 100%;
+		margin-bottom: 3%;
+		margin-right: 0;
+	}
 `
 
 export const StyledText = styled.p`
