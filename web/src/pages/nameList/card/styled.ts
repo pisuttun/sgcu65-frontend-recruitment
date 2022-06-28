@@ -5,5 +5,15 @@ export const Container = styled.div`
 	flex-direction: column;
 	width: 17vw;
 	margin-right: 5%;
-	border: 1px solid black;
+	margin-bottom: 1%;
+	border: 1px solid #DE5C8E;
+	border-radius: 10px;
+	overflow: auto;
+`
+
+export const StyledText = styled.p`
+	margin-left: 2%; 
+	white-space: nowrap;
+	margin-bottom: 0.5rem;
+	margin-top: 0;
 `
