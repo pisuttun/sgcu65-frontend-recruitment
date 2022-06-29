@@ -10,10 +10,10 @@ export const PageContainer = styled.div`
 
 export const MenuContainer = styled.div`
 	display: flex;
+	flex-flow: column;
 	align-items: center;
 	margin-right: 5%;
 	margin-left: auto;
-	border: 1px solid black;
 `
 
 export const FormBox = styled.form`
@@ -22,10 +22,10 @@ export const FormBox = styled.form`
 	height: 70vh;
 	justify-content: space-around;
 	flex-direction: column;
-	border: 1px solid green;
+	border: 1px solid ${props => props.theme.palette.primary};
 	border-radius: 10px;
 	background-color: white;
-	@media (max-width: 800px) {
+	@media (max-width: ${props => props.theme.breakpoint}) {
 		width:80vw;
 	}
 
@@ -33,7 +33,7 @@ export const FormBox = styled.form`
 export const SubmitBtn = styled.input`
     display: flex;
 	align-self: center;
-    background-color: pink;
+    background-color: ${props => props.theme.palette.primary};
     justify-content: center;
     font-weight: bold;
     color: white;
@@ -50,7 +50,7 @@ export const KiteImg = styled.img`
 	height: 50vh; 
 	top: 20vh; 
 	left: 10vw;
-	@media (max-width: 800px) {
+	@media (max-width: ${props => props.theme.breakpoint}) {
 		display: none;
 	}
 `

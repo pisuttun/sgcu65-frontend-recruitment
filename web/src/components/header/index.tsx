@@ -1,12 +1,12 @@
 import React from 'react';
-import { HeaderContainer } from './styled';
-import Logo from '../../assets/sgcu-logo.svg';
+import { HeaderContainer, Logo, StyledText } from './styled';
+import sgcuLogo from '../../assets/sgcu-logo.svg';
 
 export default function Header() {
   return (
-    <HeaderContainer>
-      <img src={Logo} style={{ marginRight: '2%', marginLeft: '10%' }} />
-      <h4 style={{ color: '#DE5C8E' }}>ISD SGCU</h4>
+    <HeaderContainer onClick={() => window.open('/', '_self')}>
+      <Logo src={sgcuLogo} alt="sgcu-logo" />
+      <StyledText>ISD SGCU</StyledText>
     </HeaderContainer>
   );
 }

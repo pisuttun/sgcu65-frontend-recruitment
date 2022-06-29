@@ -18,7 +18,7 @@ export const MenuContainer = styled.div`
 	justify-content: space-between;
 	align-items: center;
 	margin-bottom: 1%;
-	@media (max-width: 800px) {
+	@media (max-width: ${props => props.theme.breakpoint}) {
 		flex-direction: column;
 		align-items: flex-start;
 	}
@@ -26,13 +26,13 @@ export const MenuContainer = styled.div`
 
 export const RegisterBtn = styled(Link)`
     display: flex;
-    background-color: pink;
+    color: ${props => props.theme.palette.primary};
     text-align: center;
     align-items: center;
     justify-content: center;
 	text-decoration: none;
     font-weight: bold;
-    color: white;
+    background-color: white;
     border-radius: 5px;
     height: 2rem;
 	padding-left: 1%;
@@ -40,7 +40,7 @@ export const RegisterBtn = styled(Link)`
 `
 
 export const InputField = styled.input`
-	@media (max-width: 800px) {
+	@media (max-width: ${props => props.theme.breakpoint}) {
 		width: 99%;
 	}
 `

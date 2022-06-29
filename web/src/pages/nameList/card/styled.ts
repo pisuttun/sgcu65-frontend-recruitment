@@ -6,11 +6,11 @@ export const Container = styled.div`
 	width: 17vw;
 	margin-right: 5%;
 	margin-bottom: 1%;
-	border: 1px solid #DE5C8E;
+	border: 1px solid ${props => props.theme.palette.primary};
 	background-color: white;
 	border-radius: 10px;
 	overflow: auto;
-	@media (max-width: 800px) {
+	@media (max-width: ${props => props.theme.breakpoint}) {
 		width: 100%;
 		margin-bottom: 3%;
 		margin-right: 0;
@@ -21,5 +21,6 @@ export const StyledText = styled.p`
 	margin-left: 2%; 
 	white-space: nowrap;
 	margin-bottom: 0.5rem;
+	color: ${props => props.theme.palette.primary};
 	margin-top: 0;
 `

@@ -1,8 +1,10 @@
 import React from 'react';
+import { Store } from 'react-notifications-component';
 import { FormBox, KiteImg, MenuContainer, PageContainer, SubmitBtn, TextField, ErrorMsg } from './styled';
 import { useForm } from 'react-hook-form';
 import kite from '../../assets/kite.png';
 import { POST_JSON } from '../../functions/api';
+import SocialBar from './socialBar';
 
 interface IFormInput {
   name: String;
@@ -30,7 +32,37 @@ export default function RegisterPage() {
       password: data.pass,
     };
     console.log('req:', request);
-    //await POST_JSON('/api/register', request);
+    try {
+      await POST_JSON('/users', request);
+      Store.addNotification({
+        container: 'top-right',
+        message: 'สมัครสมาชิกเรียบร้อย ขอบคุณที่ลงทะเบียน',
+        type: 'success',
+        animationIn: ['animate__animated', 'animate__fadeIn'],
+        animationOut: ['animate__animated', 'animate__fadeOut'],
+        dismiss: {
+          duration: 2000,
+          onScreen: true,
+        },
+      });
+      setTimeout(() => {
+        window.location.href = '/';
+      }, 2000);
+    } catch (error) {
+      console.log(error);
+      Store.addNotification({
+        container: 'top-right',
+        // @ts-ignore
+        message: error['message'] || 'error',
+        type: 'danger',
+        animationIn: ['animate__animated', 'animate__fadeIn'],
+        animationOut: ['animate__animated', 'animate__fadeOut'],
+        dismiss: {
+          duration: 2000,
+          onScreen: true,
+        },
+      });
+    }
   };
 
   return (
@@ -39,8 +71,8 @@ export default function RegisterPage() {
       <MenuContainer>
         <FormBox onSubmit={handleSubmit(onSubmit)}>
           <div>
-            <h2 style={{ marginTop: '5%', marginLeft: '10%' }}>ลงทะเบียน</h2>
-            <h4 style={{ marginLeft: '10%', marginBottom: '0' }}>กรุณากรอกข้อมูลให้ครบถ้วน</h4>
+            <h1 style={{ margin: '10% 0 0 10%', fontSize: '2.5rem' }}>ลงทะเบียน</h1>
+            <p style={{ margin: '0 0 0 10%', fontSize: '0.8rem' }}>กรุณากรอกข้อมูลให้ครบถ้วน</p>
           </div>
           <TextField placeholder="ชื่อ" {...register('name', { required: true })} />
           {errors.name && <ErrorMsg>กรุณากรอกชื่อ</ErrorMsg>}
@@ -53,8 +85,8 @@ export default function RegisterPage() {
             {...register('email', { required: true, validate: (value) => value.includes('@') })}
           />
           {errors.email && <ErrorMsg>กรุณากรอกอีเมล์ที่ถูกต้อง</ErrorMsg>}
-          <TextField placeholder="รหัสผ่าน" type="password" {...register('pass', { required: true })} />
-          {errors.pass && <ErrorMsg>กรุณากรอกรหัสผ่าน</ErrorMsg>}
+          <TextField placeholder="รหัสผ่าน" type="password" {...register('pass', { required: true, min: 6 })} />
+          {errors.pass && <ErrorMsg>กรุณากรอกรหัสผ่านความยาวอย่างน้อย 8 ตัวอักษร</ErrorMsg>}
           <TextField
             type="password"
             placeholder="ยืนยันรหัสผ่าน"
@@ -63,6 +95,7 @@ export default function RegisterPage() {
           {errors.confirmPass && <ErrorMsg>รหัสผ่านไม่ตรงกัน</ErrorMsg>}
           <SubmitBtn type="submit" />
         </FormBox>
+        <SocialBar />
       </MenuContainer>
     </PageContainer>
   );

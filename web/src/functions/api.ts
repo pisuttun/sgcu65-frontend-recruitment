@@ -18,7 +18,7 @@ export const GET = (path:string, param?:Object) => {
     });
 };
 
-export const POST_JSON = (path:string, jsondata:JSON) => {
+export const POST_JSON = (path:string, jsondata:any) => {
     return new Promise(async (resolve, reject) => {
         await axios({
             method: "POST",
