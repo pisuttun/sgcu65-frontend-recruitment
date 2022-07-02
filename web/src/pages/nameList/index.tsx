@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { GET } from '../../functions/api';
+import { GET } from 'functions/api';
 import { PageContainer, MainContainer, MenuContainer, InputField, RegisterBtn } from './styled';
 import { User } from './type';
 import Card from './card';
@@ -13,7 +13,7 @@ export default function NameListPage() {
   useEffect(() => {
     console.log('fetching data');
     const fetchData = async () => {
-      const res = (await GET('/users')) as User[];
+      const res = (await GET(process.env.REACT_APP_API_URL + 'users')) as User[];
       console.log(res);
       setNamelist(res);
       setShownlist(res);

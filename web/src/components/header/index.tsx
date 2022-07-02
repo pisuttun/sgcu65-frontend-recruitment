@@ -1,6 +1,6 @@
 import React from 'react';
 import { HeaderContainer, Logo, StyledText } from './styled';
-import sgcuLogo from '../../assets/sgcu-logo.svg';
+import sgcuLogo from 'assets/sgcu-logo.svg';
 
 export default function Header() {
   return (

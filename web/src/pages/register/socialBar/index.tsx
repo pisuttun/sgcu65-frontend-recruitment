@@ -1,7 +1,7 @@
 import React from 'react';
-import fbLogo from '../../../assets/fb-logo.svg';
-import igLogo from '../../../assets/ig-logo.svg';
-import twitterLogo from '../../../assets/twitter-logo.svg';
+import fbLogo from 'assets/fb-logo.svg';
+import igLogo from 'assets/ig-logo.svg';
+import twitterLogo from 'assets/twitter-logo.svg';
 import { Container } from './styled';
 
 export default function SocialBar() {
