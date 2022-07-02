@@ -7,7 +7,7 @@ export const HeaderContainer = styled.div`
 	align-items: center;
 	padding-top: 1%;
 	top:0;
-	width: 100vw;
+	width: 100%;
 `
 
 export const Logo = styled.img`

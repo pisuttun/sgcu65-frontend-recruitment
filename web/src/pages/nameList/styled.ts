@@ -21,6 +21,7 @@ export const MenuContainer = styled.div`
 	@media (max-width: ${props => props.theme.breakpoint}) {
 		flex-direction: column;
 		align-items: flex-start;
+		margin-bottom: 5%;
 	}
 `
 
@@ -34,6 +35,7 @@ export const RegisterBtn = styled(Link)`
     font-weight: bold;
     background-color: white;
     border-radius: 5px;
+	border: 1px solid ${props => props.theme.palette.primary};
     height: 2rem;
 	padding-left: 1%;
 	padding-right: 1%;

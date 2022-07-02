@@ -85,7 +85,7 @@ export default function RegisterPage() {
             {...register('email', { required: true, validate: (value) => value.includes('@') })}
           />
           {errors.email && <ErrorMsg>กรุณากรอกอีเมล์ที่ถูกต้อง</ErrorMsg>}
-          <TextField placeholder="รหัสผ่าน" type="password" {...register('pass', { required: true, min: 6 })} />
+          <TextField placeholder="รหัสผ่าน" type="password" {...register('pass', { required: true, minLength: 8 })} />
           {errors.pass && <ErrorMsg>กรุณากรอกรหัสผ่านความยาวอย่างน้อย 8 ตัวอักษร</ErrorMsg>}
           <TextField
             type="password"
